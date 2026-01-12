@@ -18,12 +18,7 @@ import type { AgentStateType } from "./states.ts";
   console.log("--- Agent Start ---");
   // LangSmithでトレースを有効化
 
-  const result = await app.invoke(initialState, {
-    configurable: {
-      // LangSmithでこのセッションを追跡するためのランタイム設定
-      // LangChain.jsではランタイム設定は不要で、環境変数で自動的に有効化されます
-    },
-  });
+  const result = await app.invoke(initialState);
 
   console.log("--- Agent End ---");
   console.log("最終レポート:", result.draft);
